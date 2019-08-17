@@ -6,7 +6,7 @@ const Wrap = styled.div``;
 export default function HomePage() {
   return (
     <Wrap>
-      <div>hello brdix</div>
+      <div>hello brix</div>
     </Wrap>
   );
 }
