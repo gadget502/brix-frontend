@@ -36,6 +36,12 @@ class Document extends NextDocument {
     return (
       <Html lang="ko">
         <Head>
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css"
+            integrity="sha384-BdGj8xC2eZkQaxoQ8nSLefg4AV4/AwB3Fj+8SUSo7pnKP6Eoy18liIKTPn9oBYNG"
+            crossorigin="anonymous"
+          />
           <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
           <link rel="icon" href="favicon.ico" type="image/x-icon" />
         </Head>
