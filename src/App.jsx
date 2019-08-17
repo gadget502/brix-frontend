@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 import configureStore from 'store/configureStore';
 
+import 'style/index.css';
+
 class App extends NextApp {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
