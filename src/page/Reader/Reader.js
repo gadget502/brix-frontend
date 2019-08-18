@@ -20,6 +20,7 @@ const Header = styled.div`
   padding: 0 24px;
   background-color: white;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 200;
 `;
 
 const HeaderText = styled.div`
