@@ -8,18 +8,33 @@ const Content = styled.span`
   white-space: pre-wrap;
   font-family: Verdana, Segoe UI, 맑은 고딕;
 `;
+const NewLine = styled.br`
+    display: block;
+    margin-bottom: 15px;
+    content: " ";
+`;
 
 class Run extends React.Component {
     render() {
-        return (
-            <Content style={{ ...this.props.style }}>
-                {this.props.children}
-            </Content>
-        );
+        if (this.props.newline) {
+            return (
+                <Content style={{ ...this.props.style }}>
+                    {this.props.children}
+                    <NewLine />
+                </Content>
+            );
+        } else {
+            return (
+                <Content style={{ ...this.props.style }}>
+                    {this.props.children}
+                </Content>
+            );
+        }
     }
 }
 Run.defaultProps = {
-    style: ''
+    style: '',
+    newline: false
 };
 
 export default Run;
