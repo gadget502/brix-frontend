@@ -111,7 +111,7 @@ overview, I strongly recommend the following freely available references:"
       <BigTitle title="Table of Contents" _id="table_of_contents" />
       <Link title="About This Book" link="about_this_book" />
       <Link title="preface" link="Preface" />
-      <Expression expression={'int_0^infty x^2 dx'} />
+      <Expression expression={'\\int_{0}^{\\infty} x^2 dx'} />
     </Wrap>
   );
 }
