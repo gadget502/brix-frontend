@@ -272,8 +272,8 @@ export default function ExamplePage() {
           </InlMat> in different orders
           and use different strategies for computing their
           sum. For example, in <Italic>Liber Abaco</Italic>,
-          Fibonacci describes a variant that considers the
-          <InlMat>mn</InlMat> partial products in increasing order of significance,
+          Fibonacci describes a variant that considers the <InlMat>mn</InlMat> partial
+          products in increasing order of significance,
           as shown in modern pseudocode below.
         </Run>
       </Article>
