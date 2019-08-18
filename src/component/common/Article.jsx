@@ -17,13 +17,21 @@ const Content = styled.div`
   line-height: 1.4em;
 `;
 
-export default function Article({ title, _id, content }) {
-  const linkId = _id && title;
+class Article extends React.Component {
+  render() {
+    const linkId = this.props._id;
 
-  return (
-    <Wrap>
-      {title && <Title name={linkId}>{title}</Title>}
-      <Content>{content}</Content>
-    </Wrap>
-  );
+    return (
+      <Wrap>
+        {this.props.title && <Title id={linkId}>{this.props.title}</Title>}
+        {React.Children.map(this.props.children, (item) => item)}
+      </Wrap>
+    );
+  }
 }
+Article.defaultProps = {
+  title: null,
+  _id: null,
+};
+
+export default Article;

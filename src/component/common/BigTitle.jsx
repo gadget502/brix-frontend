@@ -12,14 +12,15 @@ const Title = styled.a`
   font-size: 2em;
   font-weight: bold;
   color: #2e3092;
+  font-family: Segoe UI, 맑은 고딕;
 `;
 
 export default function BigTitle({ title, _id }) {
-  const linkId = _id && title;
+  const linkId = _id;
 
   return (
     <Wrap>
-      <Title name={linkId}>{title}</Title>
+      <Title id={linkId}>{title}</Title>
     </Wrap>
   );
 }
