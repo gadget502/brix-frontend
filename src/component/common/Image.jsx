@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrap = styled.div`
-  margin: 0 20px 40px 20px;
+  margin: 10px 25px 10px 25px;
 `;
 
-export default function Remark({ src }) {
-  const linkId = _id && title;
+export default function Image({ src }) {
+  //const linkId = _id && title;
 
   return (
     <Wrap>

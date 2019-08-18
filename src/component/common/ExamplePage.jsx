@@ -8,6 +8,9 @@ import SmallTitle from './SmallTitle';
 import Article from './Article';
 import Run from './Run';
 import { BulletList, BulletListItem } from './BulletList'
+import Figure from './Figure';
+import CodeBox, { CodeBoxTab, FuncName } from './CodeBox';
+import WrapPanel from './WrapPanel';
 import Expression from './Expression';
 import Link from './Link';
 import Remark from './Remark';
@@ -163,16 +166,16 @@ export default function ExamplePage() {
           An algorithm is an explicit, precise, unambiguous, mechanically-executable
           sequence of elementary instructions, usually intended to accomplish a specific
           purpose. For example, here is an algorithm for singing that annoying song "99
-          Bottles of Beer on the Wall", for arbitrary values of 99:"
+          Bottles of Beer on the Wall", for arbitrary values of 99:
         </Run>
-        <Run newline='true'>
-          <span style={{ display: 'inline-block', width: '30px' }} />BottlesOfBeer(n): <br></br>
-          <span style={{ display: 'inline-block', width: '60px' }} />For i ← n down to 1<br></br>
-          <span style={{ display: 'inline-block', width: '90px' }} />Sing “i bottles of beer on the wall, i bottles of beer, ”<br></br>
-          <span style={{ display: 'inline-block', width: '90px' }} />Sing “ Take one down, pass it around, i −1 bottles of beer on the wall. ”<br></br>
-          <span style={{ display: 'inline-block', width: '90px' }} />Sing “ No bottles of beer on the wall, no bottles of beer, ”<br></br>
-          <span style={{ display: 'inline-block', width: '90px' }} />Sing “ Go to the store, buy some more, n bottles of beer on the wall. ”
-        </Run>
+        <CodeBox>
+          <FuncName>BottlesOfBeer(<InlMat>n</InlMat>):</FuncName><br></br>
+          <CodeBoxTab />For <InlMat>i \leftarrow n</InlMat> down to <InlMat>1</InlMat><br></br>
+          <CodeBoxTab /><CodeBoxTab />Sing “ <Italic><InlMat>i</InlMat> bottles of beer on the wall, <InlMat>i</InlMat> bottles of beer, </Italic>”<br></br>
+          <CodeBoxTab /><CodeBoxTab />Sing “ <Italic>Take one down, pass it around, <InlMat>i-1</InlMat> bottles of beer on the wall. </Italic>”<br></br>
+          <CodeBoxTab /><CodeBoxTab />Sing “ <Italic>No bottles of beer on the wall, no bottles of beer, </Italic>”<br></br>
+          <CodeBoxTab /><CodeBoxTab />Sing “ <Italic>Go to the store, buy some more, <InlMat>n</InlMat> bottles of beer on the wall. </Italic>”
+        </CodeBox>
         <Run newline='true'>
           The word "algorithm" does <Italic>not</Italic> derive, as algorithmophobic classicists
           might guess, from the Greek roots <Italic>arithmos</Italic> (άριθμός), meaning "number",
@@ -266,7 +269,7 @@ export default function ExamplePage() {
         <BlockMath>
           {`x\\cdot y = \\sum_{ i = 0 }^ { m- 1}\\sum_{ j = 0 }^ { n- 1} \\left(X[i]\\cdot Y[j]\\cdot 10 ^ { i+ j}\\right).`}
         </BlockMath>
-        <Run>
+        <Run newline='true'>
           Different variants of the lattice algorithm evaluate the partial products <InlMat>
             {`X[i]\\cdot Y[j]\\cdot 10 ^ { i + j}`}
           </InlMat> in different orders
@@ -275,6 +278,59 @@ export default function ExamplePage() {
           Fibonacci describes a variant that considers the <InlMat>mn</InlMat> partial
           products in increasing order of significance,
           as shown in modern pseudocode below.
+        </Run>
+        <CodeBox>
+          <FuncName>FibonacciMultiply(<InlMat>X[0..m-1], Y[0..n-1]</InlMat>):</FuncName><br></br>
+          <CodeBoxTab /><InlMat>hold \leftarrow 0</InlMat><br></br>
+          <CodeBoxTab />for <InlMat>k \leftarrow 0</InlMat> to <InlMat>n+m-1</InlMat><br></br>
+          <CodeBoxTab /><CodeBoxTab />for all <InlMat>i</InlMat> and <InlMat>j</InlMat> such that <InlMat>i+j=k</InlMat><br></br>
+          <CodeBoxTab /><CodeBoxTab /><CodeBoxTab /><InlMat>hold \leftarrow hold + X[i]\cdot Y[j]</InlMat><br></br>
+          <CodeBoxTab /><CodeBoxTab /><InlMat>{`Z[k] \\leftarrow hold \\text{ mod } 10`}</InlMat><br></br>
+          <CodeBoxTab /><CodeBoxTab /><InlMat>hold \leftarrow \lfloor hold/10 \rfloor</InlMat><br></br>
+          <CodeBoxTab />return <InlMat>Z[0..m+n-1]</InlMat>
+        </CodeBox>
+        <Run>
+          Fibonacci’s algorithm is often executed by storing all the partial products in a
+          two-dimensional table (often called a "tableau" or "grate" or "lattice") and then
+          summing along the diagonals with appropriate carries, as shown on the right in
+          Figure 0.1. American elementary-school students are taught to multiply one
+          factor (the "multiplicand") by each digit in the other factor (the "multiplier"),
+          writing down all the multiplicand-by-digit products before adding them up, as
+          shown on the left in Figure 0.1. This was also the method described by Eutocius,
+          although he fittingly considered the multiplier digits from left to right, as shown
+          in Figure 0.2. Both of these variants (and several others) are described and
+          illustrated side by side in the anonymous 1458 textbook <Italic>L’Arte dell’Abbaco</Italic>, also
+          known as the <Italic>Treviso Arithmetic</Italic>,
+          the first <Italic>printed</Italic> mathematics book in the West.
+        </Run>
+        <Figure num='0.1' desc={
+          <Run>Computing 934 × 314 = 293276 using "long" multiplication
+            (with error-checking by casting out nines) and "lattice" multiplication,
+            from <Italic>L’Arte dell’Abbaco</Italic> (1458). (See Image Credits at the end of the book.)</Run>
+        }>
+          <WrapPanel>
+            <Image src='/static/Figure0.1_(a).png' />
+            <Image src='/static/Figure0.1_(b).png' />
+          </WrapPanel>
+        </Figure>
+        <Figure num='0.2' desc={
+          <Run> Eutocius’s 6th-century calculation of <InlMat>
+            {`1172\\frac{1}{8}\\times 1172\\frac{1}{8} = 1373877\\frac{1}{64}`}</InlMat>,
+            in his commentary on Archimedes’ <Italic>Measurement of the Circle</Italic>,
+            transcribed (left) and translated into modern notation (right) by
+            Johan Heiberg (1891). (See Image Credits at the end of the book.)</Run>
+        }>
+          <WrapPanel>
+            <Image src='/static/Figure0.2_(a).png' />
+            <Image src='/static/Figure0.2_(b).png' />
+          </WrapPanel>
+        </Figure>
+        <Run>
+          All of these variants of the lattice algorithm—and other similar variants
+          described by Sunzi, al-Khwa̅rizmi̅, Fibonacci, <Italic>L’Arte dell’Abbaco</Italic>, and many other
+          sources—compute the product of any <InlMat>m</InlMat>-digit number and any <InlMat>n</InlMat>-digit number
+          in <InlMat>{`\\bm{O(mn)}`}</InlMat><Bold> time</Bold>; the running time of every variant is
+          dominated by the number of single-digit multiplications.
         </Run>
       </Article>
       <SmallTitle title='Duplation and Mediation' />
@@ -297,7 +353,37 @@ export default function ExamplePage() {
           parity (even or odd), (2) addition, (3) <Bold><Italic>duplation</Italic></Bold> (doubling a number),
           and (4) <Bold><Italic>mediation</Italic></Bold> (halving a number, rounding down).
         </Run>
+        <Figure num="0.3" desc="Multiplication by duplation and mediation">
+          <CodeBox>
+            <FuncName>PeasantMultiply(<InlMat>x,y</InlMat>):</FuncName><br></br>
+            <CodeBoxTab /><InlMat>prod \leftarrow 0</InlMat><br></br>
+            <CodeBoxTab />while <InlMat>x > 0</InlMat><br></br>
+            <CodeBoxTab /><CodeBoxTab />if <InlMat>x</InlMat> is odd<br></br>
+            <CodeBoxTab /><CodeBoxTab /><CodeBoxTab /><InlMat>prod \leftarrow prod + y</InlMat><br></br>
+            <CodeBoxTab /><CodeBoxTab /><InlMat>x \leftarrow \lfloor x/2 \rfloor</InlMat><br></br>
+            <CodeBoxTab /><CodeBoxTab /><InlMat>y \leftarrow y + y</InlMat><br></br>
+            <CodeBoxTab />return <InlMat>prod</InlMat>
+          </CodeBox>
+          <Image src='/static/Figure0.3_(b).png' />
+        </Figure>
+        <Run>
+          The correctness of this algorithm follows by induction from the following
+          recursive identity, which holds for all non-negative integers <InlMat>x</InlMat> and <InlMat>y</InlMat>:
+        </Run>
+        <BlockMath>
+          {`
+            x\\cdot y = \\begin{cases}
+              0 & \\text{if } x = 0 \\\\
+              \\lfloor x/2 \\rfloor \\cdot (y + y) & \\text{if } x \\text{ is even} \\\\
+              \\lfloor x/2 \\rfloor \\cdot (y + y) + y & \\text{if } x \\text{ is odd} \\\\
+            \\end{cases}
+          `}
+        </BlockMath>
+        <Run newline='true'>
+          Arguably, this recurrence <Italic>is</Italic> the peasant multiplication algorithm. Don’t let the
+          iterative pseudocode fool you; the algorithm is fundamentally recursive!
+        </Run>
       </Article>
-    </Wrap >
+    </Wrap>
   );
 }
