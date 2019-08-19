@@ -118,13 +118,25 @@ export default function Chapter1() {
         </P.Run>
       </P.Article>
       <P.Article title="1.3 Tower of Hanoi" _id="1.3_tower_of_hanoi">
-        <P.Run>
+        <P.Run newline="true">
           The Tower of Hanoi puzzle was first published—as an actual physical puzzle!—by the French teacher and recreational mathematician Édouard Lucas in 1883, under the pseudonym “N. Claus (de Siam)” (an anagram of “Lucas d’Amiens”).
           The following year, Henri de Parville described the puzzle with the following remarkable story:
             </P.Run>
-        <P.Run>
-          In the great temple at Benares4. . . beneath the dome which marks the centre of  the world, rests a brass plate in which are fixed three diamond needles, each  a cubit high and as thick as the body of a bee. On one of these needles, at the  creation, God placed sixty-four discs of pure gold, the largest disc resting on the  brass plate, and the others getting smaller and smaller up to the top one. This is  the Tower of Bramah. Day and night unceasingly the priests transfer the discs  from one diamond needle  to  another  according  to  the  fixed  and  immutable    laws  of  Bramah,  which require that the priest on duty must not move more  than one disc at a time and that he must place this disc on a needle so that  there is no smaller disc below it. When the sixty-four discs shall have been thus  transferred from the needle on which at the creation God placed them to one  of the other needles, tower, temple, and Brahmins alike will crumble into dust, and with a thunderclap the world will vanish.
-            </P.Run>
+        <P.Run newline="true" >
+          <P.Italic>In the great temple at Benares. . . beneath the dome which marks the centre of the world, rests a brass plate in which are fixed three diamond needles, each a cubit high and as thick as the body of a bee. On one of these needles, at the  creation, God placed sixty-four discs of pure gold, the largest disc resting on the  brass plate, and the others getting smaller and smaller up to the top one. This is  the Tower of Bramah. Day and night unceasingly the priests transfer the discs  from one diamond needle  to  another  according  to  the  fixed  and  immutable    laws  of  Bramah,  which require that the priest on duty must not move more  than one disc at a time and that he must place this disc on a needle so that  there is no smaller disc below it. When the sixty-four discs shall have been thus transferred from the needle on which at the creation God placed them to one  of the other needles, tower, temple, and Brahmins alike will crumble into dust, and with a thunderclap the world will vanish.
+          </P.Italic>
+        </P.Run>
+        <P.Image src="/static/Figure1.1_(a).png" />
+        <P.Run newline="true">
+          Of course, as good computer scientists, our first instinct on reading this  story is to substitute the variable n for the hardwired constant 64. And because  most physical instances of the puzzle are made of wood instead of diamonds  and gold, I will call the three possible locations for the disks “pegs” instead of “needles”. How can we move a tower of n disks from one peg to another, using a  third spare peg as an occasional placeholder, without ever placing a disk on top  of a smaller disk?
+        </P.Run>
+        <P.Run newline="true">
+          As N. Claus (de Siam) pointed out in the pamphlet included with his puzzle,
+          the secret to solving this puzzle is to think recursively. Instead of trying to solve
+          the entire puzzle at once, let’s concentrate on moving just the largest disk. We  can’t move it at the beginning,
+          because all the other disks are in the way. So  first we have to move those <P.InlMat>n-1</P.InlMat> smaller disks to the spare peg.
+          Once that’s  done, we can move the largest disk directly to its destination. Finally, to finish  the puzzle, we have to move the <P.InlMat>>n − 1</P.InlMat> smaller disks from the spare peg to their destination.
+        </P.Run>
       </P.Article>
     </Wrap>
   );
