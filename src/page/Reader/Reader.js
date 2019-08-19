@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Prologue from 'component/algorithms-jeffe/Prologue';
+import NoteDrawer from 'component/note-taking/NoteDrawer';
 
 const Wrap = styled.div``;
 
@@ -41,6 +42,11 @@ const __DUMMY_JSON__ = [
 
 export default function Reader({ page = null }) {
   if (page == null) page = (<Prologue />);
+  return (
+    <Wrap>
+      <NoteDrawer page={page} />
+    </Wrap >
+  );
   return (
     <Wrap>
       <Header>
