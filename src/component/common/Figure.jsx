@@ -52,7 +52,7 @@ class Figure extends React.Component {
 
         var border_option = (this.props.boxed) ? 'solid' : 'none';
         return (
-            <Content id={this.props._id} style={{ border: border_option }}>
+            <Content id={str_id} style={{ border: border_option }}>
                 {this.props.children}
                 {caption_list}
             </Content>
