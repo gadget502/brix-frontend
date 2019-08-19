@@ -10,10 +10,19 @@ const Title = styled.a`
   line-height: 1.4em;
 `;
 
-export default function Link({ title, link }) {
-  return (
-    <Wrap>
-      <Title href={`#${link}`}>{title}</Title>
-    </Wrap>
-  );
+export default function Link({ title, link, page = null }) {
+  if (!page) {
+    return (
+      <Wrap>
+        <Title href={`#${link}`}>{title}</Title>
+      </Wrap>
+    );
+  } else {
+    var str = page + '#' + link;
+    return (
+      <Wrap>
+        <Title href={str}>{title}</Title>
+      </Wrap>
+    )
+  }
 }

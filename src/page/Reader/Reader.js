@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ExamplePage from 'component/common/ExamplePage';
+import Prologue from 'component/algorithms-jeffe/Prologue';
 
 const Wrap = styled.div``;
 
@@ -39,14 +39,15 @@ const __DUMMY_JSON__ = [
   },
 ];
 
-export default function Reader() {
+export default function Reader({ page = null }) {
+  if (page == null) page = (<Prologue />);
   return (
     <Wrap>
       <Header>
         <HeaderText>SOME TITLE</HeaderText>
       </Header>
       <InnerWrap>
-        <ExamplePage />
+        {page}
       </InnerWrap>
     </Wrap>
   );
