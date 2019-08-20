@@ -11,6 +11,7 @@ import { makeStyles } from '@material-ui/styles';
 const useStyles = makeStyles({
     card: {
         minWidth: 275,
+        margin: 8
     },
     title: {
         fontSize: 14,
@@ -38,7 +39,7 @@ export default function SimpleNote({ title, timestamp }) {
                     {title}
                 </Typography>
                 <Typography className={classes.pos} color="textSecondary">
-                    {str_timestamp}
+                    {timestamp}
                 </Typography>
             </CardContent>
             <CardActions>
