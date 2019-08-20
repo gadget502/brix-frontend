@@ -50,7 +50,7 @@ export default function Reader({ page = null }) {
   return (
     <Wrap>
       <Header>
-        <HeaderText>SOME TITLE</HeaderText>
+        <HeaderText>TEST</HeaderText>
       </Header>
       <InnerWrap>
         {page}

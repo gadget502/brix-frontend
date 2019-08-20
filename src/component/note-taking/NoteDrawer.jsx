@@ -21,6 +21,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Note from './Note';
 import Reply from './Reply';
+import SimpleNote from './Note_Simple';
 
 
 
@@ -142,7 +143,7 @@ export default function PersistentDrawerRight({ page = null }) {
             >
                 <Toolbar>
                     <Typography variant="h6" noWrap className={classes.title}>
-                        SOME TITLE
+                        TEST
                     </Typography>
                     <IconButton
                         color="inherit"
@@ -181,6 +182,10 @@ export default function PersistentDrawerRight({ page = null }) {
                 </div>
                 <Divider />
                 <div style={{ overflowY: 'scroll' }}>
+                    <SimpleNote
+                        timestamp="990123456789"
+                        title="저는 학점을 잘 줍니다."
+                    />
                     <Note
                         timestamp="987654321"
                         title="저는 학점을 잘 줍니다."
