@@ -21,17 +21,9 @@ const useStyles = makeStyles({
     },
 });
 
-export default function SimpleNote({ title, timestamp }) {
+export default function SimpleNote({ title, timestamp, seeMore }) {
     const classes = useStyles();
 
-    var e = (x) => {
-        x = String(x);
-        return (x.length == 1) ? ('0' + x) : (x);
-    };
-
-    var d = new Date(Number(timestamp));
-    var str_timestamp = d.getFullYear() + "/" + (d.getMonth() + 1) + "/" +
-        d.getDate() + " " + e(d.getHours()) + ":" + e(d.getMinutes()) + ":" + e(d.getSeconds());
     return (
         <Card className={classes.card} >
             <CardContent>
@@ -43,7 +35,7 @@ export default function SimpleNote({ title, timestamp }) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">See More</Button>
+                <Button size="small" onClick={seeMore}>See More</Button>
             </CardActions>
         </Card>
     );

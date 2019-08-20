@@ -26,14 +26,6 @@ export default class Note extends React.Component {
         alert('Barney Aye! Add popup menu!');
     }
     render() {
-        var e = (x) => {
-            x = String(x);
-            return (x.length == 1) ? ('0' + x) : (x);
-        };
-
-        var d = new Date(Number(this.props.timestamp));
-        var str_timestamp = d.getFullYear() + "/" + (d.getMonth() + 1) + "/" +
-            d.getDate() + " " + e(d.getHours()) + ":" + e(d.getMinutes()) + ":" + e(d.getSeconds());
         return (
             <Wrap style={{ padding: '24px' }}>
                 <Material.Box style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
@@ -43,7 +35,7 @@ export default class Note extends React.Component {
                         <MoreVertIcon />
                     </Material.IconButton>
                 </Material.Box>
-                <Label style={{ fontSize: '1.0em', color: '#808080', marginBottom: '32px' }}>{str_timestamp}</Label>
+                <Label style={{ fontSize: '1.0em', color: '#808080', marginBottom: '32px' }}>{this.props.timestamp}</Label>
                 <Label style={{ fontSize: '1.0em' }}>{this.props.content}</Label><br />
                 <VSpace height="24px" />
                 <Material.TextField placeholder="댓글을 입력하세요..." style={{ width: '100%', marginBottom: '8px' }}></Material.TextField>

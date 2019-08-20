@@ -94,6 +94,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function PersistentDrawerRight({ page = null }) {
+
+
+
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -157,7 +160,7 @@ export default function PersistentDrawerRight({ page = null }) {
                 <Divider />
                 <div style={{ overflowY: 'scroll' }}>
                     <NoteDrawerMain />
-
+                    /*
                     <Note
                         timestamp="987654321"
                         title="저는 학점을 잘 줍니다."
@@ -173,6 +176,7 @@ export default function PersistentDrawerRight({ page = null }) {
                             content="국내 인공지능 관련 커뮤니티 현업 종사자님들이 추천해주신 아주 유용한 책입니다.
                             커넥트 재단의 선형대수 강의와 함께 보면 이해안되는 부분이 많이 풀릴 거에요. 참고하세요~" />
                     </Note>
+                    */
                 </div>
             </Drawer>
         </div>
