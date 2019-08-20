@@ -13,3 +13,4 @@ export { default as LinkInl } from './LinkInl';
 export { default as Remark } from './Remark';
 export { default as Image } from './Image';
 export { Italic, Bold, BoldItalic, InlMat } from './InlComponents';
+export { default as BackButton } from './BackButton';
