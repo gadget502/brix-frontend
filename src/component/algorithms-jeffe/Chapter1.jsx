@@ -1,10 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
 import { BlockMath } from 'react-katex';
+import YouTube from 'react-youtube';
+
+import '../../style/index.css'
 
 import * as P from '../common';
 
 const Wrap = styled.div``;
+
+const opts = {
+  width: '100%',
+  height: '100vh',
+
+  playerVars: { // https://developers.google.com/youtube/player_parameters
+    controls: 1,
+    autoplay: 0,
+    disablekb: 1,
+    modestbranding: 1,
+    rel: 0,
+    showinfo: 0
+  }
+};
 
 export default function Chapter1() {
   return (
@@ -126,7 +143,11 @@ export default function Chapter1() {
           <P.Italic>In the great temple at Benares. . . beneath the dome which marks the centre of the world, rests a brass plate in which are fixed three diamond needles, each a cubit high and as thick as the body of a bee. On one of these needles, at the  creation, God placed sixty-four discs of pure gold, the largest disc resting on the  brass plate, and the others getting smaller and smaller up to the top one. This is  the Tower of Bramah. Day and night unceasingly the priests transfer the discs  from one diamond needle  to  another  according  to  the  fixed  and  immutable    laws  of  Bramah,  which require that the priest on duty must not move more  than one disc at a time and that he must place this disc on a needle so that  there is no smaller disc below it. When the sixty-four discs shall have been thus transferred from the needle on which at the creation God placed them to one  of the other needles, tower, temple, and Brahmins alike will crumble into dust, and with a thunderclap the world will vanish.
           </P.Italic>
         </P.Run>
-        <P.Image src="/static/Figure1.1_(a).png" />
+        <P.Figure num='1.1' desc={
+          <P.Run>The (8-disk) Tower of Hanoi puzzle</P.Run>
+        }>
+          <P.Image src="/static/Figure1.1_(a).png" />
+        </P.Figure>
         <P.Run newline="true">
           Of course, as good computer scientists, our first instinct on reading this  story is to substitute the variable n for the hardwired constant 64. And because  most physical instances of the puzzle are made of wood instead of diamonds  and gold, I will call the three possible locations for the disks “pegs” instead of “needles”. How can we move a tower of n disks from one peg to another, using a  third spare peg as an occasional placeholder, without ever placing a disk on top  of a smaller disk?
         </P.Run>
@@ -135,9 +156,49 @@ export default function Chapter1() {
           the secret to solving this puzzle is to think recursively. Instead of trying to solve
           the entire puzzle at once, let’s concentrate on moving just the largest disk. We  can’t move it at the beginning,
           because all the other disks are in the way. So  first we have to move those <P.InlMat>n-1</P.InlMat> smaller disks to the spare peg.
-          Once that’s  done, we can move the largest disk directly to its destination. Finally, to finish  the puzzle, we have to move the <P.InlMat>>n − 1</P.InlMat> smaller disks from the spare peg to their destination.
+          Once that’s  done, we can move the largest disk directly to its destination. Finally, to finish the puzzle, we have to move the <P.InlMat>n-1</P.InlMat> smaller disks from the spare peg to their destination.
+        </P.Run>
+        <P.Figure num='1.2' desc={
+          <P.Run>The Tower of Hanoi algorithm; ignore everything but the bottom disk.</P.Run>
+        }>
+          <P.Image src="/static/Figure1.2_(a).png" />
+        </P.Figure>
+        <P.Figure num='1.3' desc={
+          <P.Run>The Tower of Hanoi algorithm; Full-video.</P.Run>
+        }>
+          <P.Run>
+            <YouTube
+              videoId="YstLjLCGmgg"
+              opts={opts}
+            />
+          </P.Run>
+        </P.Figure>
+        <P.Run newline="true">
+          That’s it! We’re done! We’ve successfully reduced the <P.InlMat>n</P.InlMat>-disk Tower of Hanoi problem to two instances of the
+          <P.InlMat>(n-1)</P.InlMat>-disk Tower of Hanoi problem, which we can gleefully hand off to the Recursion Fairy—or to carry Lucas’s metaphor
+          further, to the junior monks at the temple. Our job is finished. If we didn’t trust the junior monks, we wouldn’t have hired them; let them do their job in peace.
+        </P.Run>
+        <P.Run newline="true">
+          Our reduction does make one subtle but extremely important assumption: There is a largest disk. Our recursive algorithm works for any positive number of disks,
+          but it breaks down when <P.InlMat>n = 0</P.InlMat>. We must handle that case using a  different method. Fortunately, the monks at Benares, being good Buddhists,
+          are quite adept at moving zero disks from one peg to another in no time at all, by  doing nothing.
+        </P.Run>
+        <P.Figure num='1.4' desc={
+          <P.Run>The vacuous base case for the Tower of Hanoi algorithm. There is no spoon.</P.Run>
+        }>
+          <P.Image src="/static/Figure1.4_(a).png" />
+        </P.Figure>
+        <P.Run newline="true">
+          It may be tempting to think about how all those smaller disks move around or more generally,
+          what happens when the recursion is unrolled—but really, don’t do it.
+          For most recursive algorithms, unrolling the recursion is neither necessary nor helpful.
+          Our <P.BoldItalic>only</P.BoldItalic> task is to reduce the problem instance we’re given to one or more simpler instances,
+          or to solve the problem directly if such a reduction is impossible. Our recursive Tower of Hanoi algorithm is trivially
+          correct when <P.InlMat>n=0</P.InlMat>. For any <P.InlMat>n ≥ 1</P.InlMat>, the Recursion Fairy correctly moves the top  <P.InlMat>n-1</P.InlMat> disks (more formally, the Inductive Hypothesis implies that our recursive
+          algorithm correctly moves the top <P.InlMat>n-1</P.InlMat> disks) so our algorithm is correct.
+
         </P.Run>
       </P.Article>
-    </Wrap>
+    </Wrap >
   );
 }
