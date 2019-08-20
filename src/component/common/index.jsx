@@ -12,4 +12,4 @@ export { default as Link } from './Link';
 export { default as LinkInl } from './LinkInl';
 export { default as Remark } from './Remark';
 export { default as Image } from './Image';
-export { Italic, Bold, InlMat } from './InlComponents';
+export { Italic, Bold, BoldItalic, InlMat } from './InlComponents';

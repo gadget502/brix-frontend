@@ -448,3 +448,8 @@ textarea {
   color: #000;
   padding: 0.2em 0;
 }
+
+iframe {
+  display: block;
+  height : 56vh;
+}
