@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import Prologue from 'component/algorithms-jeffe/Prologue';
 import NoteDrawer from 'component/note-taking/NoteDrawer';
+import Chapter1 from '../../component/algorithms-jeffe/Chapter1';
+import Chapter0 from '../../component/algorithms-jeffe/Chapter0';
 
 const Wrap = styled.div``;
 
@@ -41,7 +43,7 @@ const __DUMMY_JSON__ = [
 ];
 
 export default function Reader({ page = null }) {
-  if (page == null) page = (<Prologue />);
+  if (page == null) page = (<InnerWrap> <Prologue /> <Chapter0 /> <Chapter1 /> </InnerWrap>);
   return (
     <Wrap>
       <NoteDrawer page={page} />
@@ -50,7 +52,7 @@ export default function Reader({ page = null }) {
   return (
     <Wrap>
       <Header>
-        <HeaderText>SOME TITLE</HeaderText>
+        <HeaderText>TEST</HeaderText>
       </Header>
       <InnerWrap>
         {page}
