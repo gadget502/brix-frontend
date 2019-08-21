@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrap = styled.ul`
-  margin: 0 40px 40px 35px;
+  margin: 0 40px 18px 35px;
   list-style-type: disc;
 `;
 

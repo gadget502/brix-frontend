@@ -10,7 +10,7 @@ export default function Image({ src }) {
 
   return (
     <Wrap>
-      <img style={{ margin: '0 auto', maxHeight: '300px' }} src={src} />
+      <img style={{ margin: '0 auto', maxWidth: '100%', maxHeight: '300px' }} src={src} />
     </Wrap>
   );
 }

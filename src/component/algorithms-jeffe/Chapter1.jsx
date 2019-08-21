@@ -75,7 +75,7 @@ export default function Chapter1() {
       <P.Article title="1.2 Simplify and Delegate" _id="1.2_simplify_and_delegate">
         <P.Run newline="true">
           <P.Italic>Recursion</P.Italic> is a particularly powerful kind of reduction, which can be described  loosely as follows:
-            </P.Run>
+        </P.Run>
         <P.BulletList>
           <P.BulletListItem title="">
             <P.Run>
@@ -104,7 +104,7 @@ export default function Chapter1() {
           skreeble using some other method.
         </P.Run>
         <P.Run>
-          We’ve already seen one instance of this pattern in the peasant multiplication  algorithm, which is based directly on the following recursive identity.
+          We’ve already seen one instance of this pattern in the peasant multiplication algorithm, which is based directly on the following recursive identity.
         </P.Run>
         <BlockMath>
           {`
@@ -119,19 +119,26 @@ export default function Chapter1() {
           The same recurrence can be expressed algorithmically as follows:
         </P.Run>
         <P.CodeBox>
-          <P.FuncName>PeasantMultiply(<P.InlMat>x,y</P.InlMat>): if <P.InlMat>x</P.InlMat> = 0</P.FuncName><br></br>
-          <P.CodeBoxTab /><P.CodeBoxTab />return 0<br></br>
+          <P.FuncNameUL>PeasantMultiply(<P.InlMat>x,y</P.InlMat>):</P.FuncNameUL><br></br>
+          <P.CodeBoxTab />if <P.InlMat>x = 0</P.InlMat><br />
+          <P.CodeBoxTab /><P.CodeBoxTab />return <P.InlMat>0</P.InlMat><br></br>
           <P.CodeBoxTab />else <br />
-          <P.CodeBoxTab /><P.CodeBoxTab /><P.InlMat>x^! \leftarrow \lfloor x/2 \rfloor</P.InlMat><br></br>
-          <P.CodeBoxTab /><P.CodeBoxTab /><P.InlMat>y^! \leftarrow y + y</P.InlMat><br></br><br />
-          <P.CodeBoxTab /><P.CodeBoxTab /><P.Italic>prod </P.Italic><P.InlMat>\leftarrow</P.InlMat> PeasantMultiply(<P.InlMat>x^!,y^!</P.InlMat>)<br></br>
+          <P.CodeBoxTab /><P.CodeBoxTab /><P.InlMat>x^\prime \leftarrow \lfloor x/2 \rfloor</P.InlMat><br></br>
+          <P.CodeBoxTab /><P.CodeBoxTab /><P.InlMat>y^\prime \leftarrow y + y</P.InlMat><br></br>
+          <P.CodeBoxTab /><P.CodeBoxTab /><P.InlMat>prod \leftarrow</P.InlMat> <P.FuncName>PeasantMultiply</P.FuncName>(<P.InlMat>x^\prime,y^\prime</P.InlMat>)<br></br>
           <P.CodeBoxTab /><P.CodeBoxTab />if <P.InlMat>x</P.InlMat> is odd<br></br>
-          <P.CodeBoxTab /><P.CodeBoxTab /><P.CodeBoxTab /><P.Italic>prod <P.InlMat>\leftarrow</P.InlMat>prod + y</P.Italic><br />
+          <P.CodeBoxTab /><P.CodeBoxTab /><P.CodeBoxTab /><P.InlMat> prod \leftarrow prod + y</P.InlMat><br />
           <P.CodeBoxTab />return <P.InlMat>prod</P.InlMat>
         </P.CodeBox>
         <P.Run>
-          A lazy Egyptian scribe could execute this algorithm by computing <P.InlMat>x^!</P.InlMat> and <P.InlMat>y^!</P.InlMat>, <P.Italic>asking a more junior scribe to multiply <P.InlMat>x^!</P.InlMat> and <P.InlMat>y!</P.InlMat></P.Italic>,
-          and then possibly adding <P.InlMat>y</P.InlMat> to the junior scribe’s response. The junior scribe’s problem is simpler because <P.InlMat>x^! > x</P.InlMat>  and repeatedly decreasing a positive integer eventually leads to 0. How the junior scribe actually computes <P.InlMat>x! · y!</P.InlMat> is none of the senior scribe’s business  (and it’s none of your business, either).
+          A lazy Egyptian scribe could execute this algorithm
+          by computing <P.InlMat>x^\prime</P.InlMat> and <P.InlMat>y^\prime</P.InlMat>, <P.Italic>asking a more junior scribe
+          to multiply <P.InlMat>x^\prime</P.InlMat> and <P.InlMat>y^\prime</P.InlMat></P.Italic>,
+          and then possibly adding <P.InlMat>y</P.InlMat> to the junior scribe’s response.
+          The junior scribe’s problem is simpler because <P.InlMat>{`x^\\prime < x`}</P.InlMat> and
+          repeatedly decreasing a positive integer eventually leads to 0.
+          How the junior scribe actually computes <P.InlMat>x^\prime \cdot y^\prime</P.InlMat> is
+          none of the senior scribe’s business (and it’s none of your business, either).
         </P.Run>
       </P.Article>
       <P.Article title="1.3 Tower of Hanoi" _id="1.3_tower_of_hanoi">
@@ -139,8 +146,8 @@ export default function Chapter1() {
           The Tower of Hanoi puzzle was first published—as an actual physical puzzle!—by the French teacher and recreational mathematician Édouard Lucas in 1883, under the pseudonym “N. Claus (de Siam)” (an anagram of “Lucas d’Amiens”).
           The following year, Henri de Parville described the puzzle with the following remarkable story:
             </P.Run>
-        <P.Run newline="true" >
-          <P.Italic>In the great temple at Benares. . . beneath the dome which marks the centre of the world, rests a brass plate in which are fixed three diamond needles, each a cubit high and as thick as the body of a bee. On one of these needles, at the  creation, God placed sixty-four discs of pure gold, the largest disc resting on the  brass plate, and the others getting smaller and smaller up to the top one. This is  the Tower of Bramah. Day and night unceasingly the priests transfer the discs  from one diamond needle  to  another  according  to  the  fixed  and  immutable    laws  of  Bramah,  which require that the priest on duty must not move more  than one disc at a time and that he must place this disc on a needle so that  there is no smaller disc below it. When the sixty-four discs shall have been thus transferred from the needle on which at the creation God placed them to one  of the other needles, tower, temple, and Brahmins alike will crumble into dust, and with a thunderclap the world will vanish.
+        <P.Run>
+          <P.Italic>In the great temple at Benares... beneath the dome which marks the centre of the world, rests a brass plate in which are fixed three diamond needles, each a cubit high and as thick as the body of a bee. On one of these needles, at the creation, God placed sixty-four discs of pure gold, the largest disc resting on the brass plate, and the others getting smaller and smaller up to the top one. This is the Tower of Bramah. Day and night unceasingly the priests transfer the discs from one diamond needle to another according to the fixed and immutable laws of Bramah, which require that the priest on duty must not move more than one disc at a time and that he must place this disc on a needle so that there is no smaller disc below it. When the sixty-four discs shall have been thus transferred from the needle on which at the creation God placed them to one of the other needles, tower, temple, and Brahmins alike will crumble into dust, and with a thunderclap the world will vanish.
           </P.Italic>
         </P.Run>
         <P.Figure num='1.1' desc={
@@ -149,7 +156,7 @@ export default function Chapter1() {
           <P.Image src="/static/Figure1.1_(a).png" />
         </P.Figure>
         <P.Run newline="true">
-          Of course, as good computer scientists, our first instinct on reading this  story is to substitute the variable n for the hardwired constant 64. And because  most physical instances of the puzzle are made of wood instead of diamonds  and gold, I will call the three possible locations for the disks “pegs” instead of “needles”. How can we move a tower of n disks from one peg to another, using a  third spare peg as an occasional placeholder, without ever placing a disk on top  of a smaller disk?
+          Of course, as good computer scientists, our first instinct on reading this story is to substitute the variable n for the hardwired constant 64. And because most physical instances of the puzzle are made of wood instead of diamonds and gold, I will call the three possible locations for the disks “pegs” instead of “needles”. How can we move a tower of n disks from one peg to another, using a third spare peg as an occasional placeholder, without ever placing a disk on top of a smaller disk?
         </P.Run>
         <P.Run newline="true">
           As N. Claus (de Siam) pointed out in the pamphlet included with his puzzle,
@@ -163,25 +170,26 @@ export default function Chapter1() {
         }>
           <P.Image src="/static/Figure1.2_(a).png" />
         </P.Figure>
+        <P.Run newline="true" />
         <P.Figure num='1.3' desc={
           <P.Run>The Tower of Hanoi algorithm; Full-video.</P.Run>
         }>
-          <P.Run>
+          <P.Center padding='10px 50px 10px 50px'>
             <YouTube
               videoId="YstLjLCGmgg"
               opts={opts}
             />
-          </P.Run>
+          </P.Center>
         </P.Figure>
         <P.Run newline="true">
-          That’s it! We’re done! We’ve successfully reduced the <P.InlMat>n</P.InlMat>-disk Tower of Hanoi problem to two instances of the
-          <P.InlMat>(n-1)</P.InlMat>-disk Tower of Hanoi problem, which we can gleefully hand off to the Recursion Fairy—or to carry Lucas’s metaphor
+          That’s it! We’re done! We’ve successfully reduced the <P.InlMat>n</P.InlMat>-disk Tower of Hanoi problem to two instances of
+          the <P.InlMat>(n-1)</P.InlMat>-disk Tower of Hanoi problem, which we can gleefully hand off to the Recursion Fairy—or to carry Lucas’s metaphor
           further, to the junior monks at the temple. Our job is finished. If we didn’t trust the junior monks, we wouldn’t have hired them; let them do their job in peace.
         </P.Run>
         <P.Run newline="true">
           Our reduction does make one subtle but extremely important assumption: There is a largest disk. Our recursive algorithm works for any positive number of disks,
           but it breaks down when <P.InlMat>n = 0</P.InlMat>. We must handle that case using a  different method. Fortunately, the monks at Benares, being good Buddhists,
-          are quite adept at moving zero disks from one peg to another in no time at all, by  doing nothing.
+    are quite adept at moving zero disks from one peg to another in no time at all, by  doing nothing.
         </P.Run>
         <P.Figure num='1.4' desc={
           <P.Run>The vacuous base case for the Tower of Hanoi algorithm. There is no spoon.</P.Run>
@@ -194,7 +202,8 @@ export default function Chapter1() {
           For most recursive algorithms, unrolling the recursion is neither necessary nor helpful.
           Our <P.BoldItalic>only</P.BoldItalic> task is to reduce the problem instance we’re given to one or more simpler instances,
           or to solve the problem directly if such a reduction is impossible. Our recursive Tower of Hanoi algorithm is trivially
-          correct when <P.InlMat>n=0</P.InlMat>. For any <P.InlMat>n ≥ 1</P.InlMat>, the Recursion Fairy correctly moves the top  <P.InlMat>n-1</P.InlMat> disks (more formally, the Inductive Hypothesis implies that our recursive
+          correct when <P.InlMat>n=0</P.InlMat>. For any <P.InlMat>n \ge 1</P.InlMat>, the Recursion Fairy correctly moves
+          the top <P.InlMat>n-1</P.InlMat> disks (more formally, the Inductive Hypothesis implies that our recursive
           algorithm correctly moves the top <P.InlMat>n-1</P.InlMat> disks) so our algorithm is correct.
 
         </P.Run>

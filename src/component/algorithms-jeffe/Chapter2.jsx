@@ -6,7 +6,7 @@ import * as P from '../common';
 
 const Wrap = styled.div``;
 
-export default function Chapter1() {
+export default function Chapter2() {
   return (
     <Wrap>
       <P.BigTitle title="Chapter 2. Backtracking" _id="2_backtracking" />
