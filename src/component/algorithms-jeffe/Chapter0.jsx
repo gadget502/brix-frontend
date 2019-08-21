@@ -18,12 +18,12 @@ export default function Chapter0() {
           Bottles of Beer on the Wall", for arbitrary values of 99:
         </P.Run>
         <P.CodeBox>
-          <P.FuncName>BottlesOfBeer(<P.InlMat>n</P.InlMat>):</P.FuncName><br></br>
+          <P.FuncNameUL>BottlesOfBeer(<P.InlMat>n</P.InlMat>):</P.FuncNameUL><br></br>
           <P.CodeBoxTab />For <P.InlMat>i \leftarrow n</P.InlMat> down to <P.InlMat>1</P.InlMat><br></br>
           <P.CodeBoxTab /><P.CodeBoxTab />Sing “ <P.Italic><P.InlMat>i</P.InlMat> bottles of beer on the wall, <P.InlMat>i</P.InlMat> bottles of beer, </P.Italic>”<br></br>
           <P.CodeBoxTab /><P.CodeBoxTab />Sing “ <P.Italic>Take one down, pass it around, <P.InlMat>i-1</P.InlMat> bottles of beer on the wall. </P.Italic>”<br></br>
-          <P.CodeBoxTab /><P.CodeBoxTab />Sing “ <P.Italic>No bottles of beer on the wall, no bottles of beer, </P.Italic>”<br></br>
-          <P.CodeBoxTab /><P.CodeBoxTab />Sing “ <P.Italic>Go to the store, buy some more, <P.InlMat>n</P.InlMat> bottles of beer on the wall. </P.Italic>”
+          <P.CodeBoxTab />Sing “ <P.Italic>No bottles of beer on the wall, no bottles of beer, </P.Italic>”<br></br>
+          <P.CodeBoxTab />Sing “ <P.Italic>Go to the store, buy some more, <P.InlMat>n</P.InlMat> bottles of beer on the wall. </P.Italic>”
         </P.CodeBox>
         <P.Run newline='true'>
           The word "algorithm" does <P.Italic>not</P.Italic> derive, as algorithmophobic classicists
@@ -129,7 +129,7 @@ export default function Chapter0() {
           as shown in modern pseudocode below.
         </P.Run>
         <P.CodeBox>
-          <P.FuncName>FibonacciMultiply(<P.InlMat>X[0..m-1], Y[0..n-1]</P.InlMat>):</P.FuncName><br></br>
+          <P.FuncNameUL>FibonacciMultiply(<P.InlMat>X[0..m-1], Y[0..n-1]</P.InlMat>):</P.FuncNameUL><br></br>
           <P.CodeBoxTab /><P.InlMat>hold \leftarrow 0</P.InlMat><br></br>
           <P.CodeBoxTab />for <P.InlMat>k \leftarrow 0</P.InlMat> to <P.InlMat>n+m-1</P.InlMat><br></br>
           <P.CodeBoxTab /><P.CodeBoxTab />for all <P.InlMat>i</P.InlMat> and <P.InlMat>j</P.InlMat> such that <P.InlMat>i+j=k</P.InlMat><br></br>
@@ -204,7 +204,7 @@ export default function Chapter0() {
         </P.Run>
         <P.Figure num="0.3" desc="Multiplication by duplation and mediation">
           <P.CodeBox>
-            <P.FuncName>PeasantMultiply(<P.InlMat>x,y</P.InlMat>):</P.FuncName><br></br>
+            <P.FuncNameUL>PeasantMultiply(<P.InlMat>x,y</P.InlMat>):</P.FuncNameUL><br></br>
             <P.CodeBoxTab /><P.InlMat>prod \leftarrow 0</P.InlMat><br></br>
             <P.CodeBoxTab />while <P.InlMat>x > 0</P.InlMat><br></br>
             <P.CodeBoxTab /><P.CodeBoxTab />if <P.InlMat>x</P.InlMat> is odd<br></br>
