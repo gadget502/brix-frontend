@@ -100,7 +100,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function PersistentDrawerRight({ page = null }) {
+export default function PersistentDrawerRight({ page = null, title = '' }) {
 
 
 
@@ -127,7 +127,7 @@ export default function PersistentDrawerRight({ page = null }) {
             >
                 <Toolbar>
                     <Typography variant="h6" noWrap className={classes.title}>
-                        TEST
+                        {title}
                     </Typography>
                     <IconButton
                         color="inherit"

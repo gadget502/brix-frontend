@@ -42,7 +42,7 @@ export default function Chapter1() {
         <P.Run newline="true">
           For example, the peasant multiplication algorithm described in the previous
           chapter reduces the problem of multiplying two arbitrary positive integers to
-          three simplerproblems: addition, mediation (halving), andparity-checking. The
+          three simpler problems: addition, mediation (halving), and parity-checking. The
           algorithm relies on an abstract “positive integer” data type that supports those
           three operations, but the correctness of the multiplication algorithm does not
           depend on the precise data representation (tally marks, clay tokens, Babylonian

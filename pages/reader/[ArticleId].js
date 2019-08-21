@@ -18,8 +18,14 @@ export default function ArticleDetail({ ArticleId }) {
     dictObject['1'] = (<Chapter1 />);
     dictObject['2'] = (<Chapter2 />);
 
+    var dictTitle = {};
+    dictTitle['prologue'] = 'Prologue';
+    dictTitle['0'] = 'Chapter 0. Introduction';
+    dictTitle['1'] = 'Chapter 1. Recursion';
+    dictTitle['2'] = 'Chapter 2. Backtracking';
+
     if (ArticleId in dictObject) {
-        return Reader({ page: dictObject[ArticleId] });
+        return Reader({ page: dictObject[ArticleId], title: dictTitle[ArticleId] });
     }
     return (
         <div>{ArticleId}</div>
