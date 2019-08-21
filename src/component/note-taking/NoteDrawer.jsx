@@ -23,6 +23,10 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import Modal from './Modal';
+import TextField from '@material-ui/core/TextField';
 
 import Note from './Note';
 import Reply from './Reply';
@@ -31,6 +35,8 @@ import axios from 'axios';
 import { NoteDrawerMain } from '.';
 import { Icon } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+
+import './modal.css';
 
 const InnerWrap = styled.div`
   max-width: 1024px;
@@ -77,10 +83,37 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const fab_style = {
+  fab: {
+    position: 'fixed',
+    bottom: '16px',
+    right: '16px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '56px',
+    height: '56px',
+    backgroundColor: '#1976d2',
+    borderRadius: '28px',
+    boxShadow:
+      '0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12)',
+  },
+};
+
+const modalStyle = {
+  overlay: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+};
+
 export default function PersistentDrawerRight({ page = null, title = '' }) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [isShowModal, setIsShowModal] = React.useState(false);
+  const [note, setNote] = React.useState('');
 
   function handleDrawerOpen() {
     setOpen(true);
@@ -88,6 +121,27 @@ export default function PersistentDrawerRight({ page = null, title = '' }) {
 
   function handleDrawerClose() {
     setOpen(false);
+  }
+
+  function requestAddnote(noteValue) {
+    const data = {
+      paragraphId: '1.1_reductions',
+      content: noteValue,
+      start: 'a',
+      end: 'a',
+      parentId: ''
+    };
+
+    axios.post('http://13.124.213.75:3000/api/comment/', {
+      headers: { 'Content-type': 'application/x-www-form-urlencoded' }, 
+      ...data
+    });
+  }
+
+  function addNote(noteValue) {
+    requestAddnote(noteValue);
+    setNote('');
+    setIsShowModal(false);
   }
 
   return (
@@ -125,6 +179,9 @@ export default function PersistentDrawerRight({ page = null, title = '' }) {
           <InnerWrap>{page}</InnerWrap>
         </main>
       </div>
+      <div onClick={(event) => { event.stopPropagation(); setIsShowModal(true); }} style={fab_style.fab}>
+        <AddIcon color="default" />
+      </div>
       <Drawer
         className={classes.drawer}
         variant="persistent"
@@ -148,6 +205,36 @@ export default function PersistentDrawerRight({ page = null, title = '' }) {
           <NoteDrawerMain />
         </div>
       </Drawer>
+      <Modal
+        overlayClassName="NoteModalOverlay"
+        className="EventReceiptModalContent"
+        style={modalStyle}
+        isOpen={isShowModal}
+        onRequestClose={() => {setIsShowModal(false)}}
+      >
+        <div
+          style={{
+            width: '66vw',
+            height: '30vh',
+            backgroundColor: 'white',
+            padding: '16px 22px',
+            borderRadius: '10px',
+            position: 'relative'
+          }}
+        >
+          <div style={{ fontWeight: 'bold', fontSize: '1.4em' }}>노트 입력</div>
+          <TextField
+            style={{ width: '100%', marginTop: '16px' }}
+            label="Note"
+            multiline
+            rows="1"
+            defaultValue="여기에 노트를 입력해주세요"
+            value={note}
+            onChange={e => setNote(e.target.value)}
+          />
+          <button onClick={() => { addNote(note) }} style={{ position: 'absolute', bottom :'16px', width: 'calc(100% - 44px)', height: '36px', backgroundColor: '#3f51b5', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', fontSize: '16px', borderRadius: '28px' }}>aaaa</button>
+        </div>
+      </Modal>
     </>
   );
 }
