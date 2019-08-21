@@ -11,18 +11,16 @@ const Title = styled.a`
 `;
 
 export default function Link({ title, link, page = null }) {
+  var str;
   if (!page) {
-    return (
-      <Wrap>
-        <Title href={`#${link}`}>{title}</Title>
-      </Wrap>
-    );
+    str = '#' + String(link);
   } else {
-    var str = page + '#' + link;
-    return (
-      <Wrap>
-        <Title href={str}>{title}</Title>
-      </Wrap>
-    )
+    str = String(page);
+    if (link) str += '#' + String(link);
   }
+  return (
+    <Wrap>
+      <Title href={str}>{title}</Title>
+    </Wrap>
+  );
 }

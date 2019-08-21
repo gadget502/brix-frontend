@@ -134,10 +134,10 @@ export default function Prologue() {
       <P.BigTitle title="Table of Contents" _id="table_of_contents" />
       <P.Link title="About This Book" link="about_this_book" />
       <P.Link title="Preface" link="preface" />
-      <P.Link title="0 Introduction" page="/reader/0" link="0_introduction" />
+      <P.Link title="0 Introduction" page="/reader/0" />
       <P.Link title="0.2 Multiplication" page="/reader/0" link="0.2_multiplication" />
-      <P.Link title="1 Recursion" page="/reader/1" link="1_recursion" />
-      <P.Link title="2 Backtracking" page="/reader/2" link="2_backtracking" />
+      <P.Link title="1 Recursion" page="/reader/1" />
+      <P.Link title="2 Backtracking" page="/reader/2" />
     </Wrap>
   );
 }
