@@ -44,7 +44,6 @@ export default class Note extends React.Component {
     }
 
     onClickHandler() {
-        alert('Barney Aye! Add popup menu!');
     }
     render() {
         return (

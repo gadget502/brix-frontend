@@ -14,12 +14,12 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function IconButtons() {
+export default function IconButtons({ onClick = null }) {
     const classes = useStyles();
 
     return (
         <div>
-            <IconButton className={classes.button} aria-label="delete">
+            <IconButton onClick={onClick} className={classes.button} aria-label="delete">
                 <ArrowBackIcon />
             </IconButton>
         </div>
