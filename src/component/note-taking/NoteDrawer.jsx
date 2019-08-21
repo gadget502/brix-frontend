@@ -37,7 +37,7 @@ const InnerWrap = styled.div`
   margin: 0 auto;
 `;
 
-const drawerWidth = 480;
+//const drawerWidth = 480;
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -50,12 +50,14 @@ const useStyles = makeStyles(theme => ({
         }),
     },
     appBarShift: {
-        width: `calc(100% - ${drawerWidth}px)`,
+        //width: `calc(100% - ${drawerWidth}px)`,
+        width: `calc(100% - 45%)`,
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.easeOut,
             duration: theme.transitions.duration.enteringScreen,
         }),
-        marginRight: drawerWidth,
+        //marginRight: drawerWidth,
+        marginRight: '45%'
     },
     title: {
         flexGrow: 1,
@@ -64,11 +66,13 @@ const useStyles = makeStyles(theme => ({
         display: 'none',
     },
     drawer: {
-        width: drawerWidth,
+        //width: drawerWidth,
+        width: '45%',
         flexShrink: 0,
     },
     drawerPaper: {
-        width: drawerWidth,
+        //width: drawerWidth,
+        width: '45%'
     },
     drawerHeader: {
         display: 'flex',
@@ -84,7 +88,8 @@ const useStyles = makeStyles(theme => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
-        marginRight: -drawerWidth,
+        //marginRight: -drawerWidth,
+        marginRight: '-45%'
     },
     contentShift: {
         transition: theme.transitions.create('margin', {
