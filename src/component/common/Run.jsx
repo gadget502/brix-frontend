@@ -8,11 +8,18 @@ const Content = styled.span`
   white-space: pre-wrap;
   font-family: Verdana, Segoe UI, 맑은 고딕;
 `;
-const NewLine = styled.br`
+
+const NewLineObj = styled.span`
     display: block;
-    margin-bottom: 15px;
-    content: " ";
+    margin-bottom: -5px;
 `;
+class NewLine extends React.Component {
+    render() {
+        return (
+            <NewLineObj> </NewLineObj>
+        );
+    }
+}
 
 class Run extends React.Component {
     render() {

@@ -20,6 +20,9 @@ const ContentWrap = styled.span`
 
 export const FuncName = styled.span`
     font-variant: small-caps;
+`;
+export const FuncNameUL = styled.span`
+    font-variant: small-caps;
     border-bottom: solid 0.7px;
 `;
 export const CodeBoxTab = styled.span`
