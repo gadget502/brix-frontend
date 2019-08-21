@@ -42,13 +42,23 @@ const __DUMMY_JSON__ = [
   },
 ];
 
-export default function Reader({ page = null, title = 'Algorithms - Jeff Erickson' }) {
-  if (page == null) page = (<InnerWrap> <Prologue /> <Chapter0 /> <Chapter1 /> </InnerWrap>);
+export default function Reader({
+  page = null,
+  title = 'Algorithms - Jeff Erickson',
+}) {
+  if (page == null)
+    page = (
+      <InnerWrap>
+        {' '}
+        <Prologue /> <Chapter0 /> <Chapter1 />{' '}
+      </InnerWrap>
+    );
   return (
     <Wrap>
       <NoteDrawer page={page} title={title} />
-    </Wrap >
+    </Wrap>
   );
+  /*
   return (
     <Wrap>
       <Header>
@@ -58,5 +68,5 @@ export default function Reader({ page = null, title = 'Algorithms - Jeff Erickso
         {page}
       </InnerWrap>
     </Wrap>
-  );
+  );*/
 }
