@@ -108,7 +108,7 @@ const useStyles = makeStyles(theme => ({
 const fab_style = {
   fab: {
     position: 'fixed',
-    bottom: '16px',
+    bottom: '36px',
     right: '16px',
     display: 'flex',
     justifyContent: 'center',
