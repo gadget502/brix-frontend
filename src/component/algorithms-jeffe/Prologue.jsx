@@ -151,8 +151,15 @@ export default function Prologue() {
       <P.BigTitle title="Table of Contents" _id="table_of_contents" />
       <P.Link title="Preface" link="preface" />
       <P.Link isSubLink={true} title="About This Book" link="about_this_book" />
-      <P.Link title="Table of contents" link="table_of_contents" />
+      <P.Link isSubLink={true} title="Prerequisites" link="prerequisites" />
+      <P.Link title="Table of Contents" link="table_of_contents" />
       <P.Link title="0 Introduction" page="/reader/0" />
+      <P.Link
+        isSubLink={true}
+        title="0.1 What is an algorithm?"
+        page="/reader/0"
+        link="0.1_whatisanalgorithm"
+      />
       <P.Link
         isSubLink={true}
         title="0.2 Multiplication"
@@ -160,7 +167,32 @@ export default function Prologue() {
         link="0.2_multiplication"
       />
       <P.Link title="1 Recursion" page="/reader/1" />
+      <P.Link
+        isSubLink={true}
+        title="1.1 Reductions"
+        page="/reader/1"
+        link="1.1_reductions"
+      />
+      <P.Link
+        isSubLink={true}
+        title="1.2 Simplify and Delegate"
+        page="/reader/1"
+        link="1.2_simplify_and_delegate"
+      />
+      <P.Link
+        isSubLink={true}
+        title="1.3 Tower of Hanoi"
+        page="/reader/1"
+        link="1.3_tower_of_hanoi"
+      />
       <P.Link title="2 Backtracking" page="/reader/2" />
+
+      <P.Link
+        isSubLink={true}
+        title="2.1 N Queens"
+        page="/reader/2"
+        link="2.1_Nqueens"
+      />
     </Wrap>
   );
 }
