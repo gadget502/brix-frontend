@@ -252,7 +252,7 @@ export default function PersistentDrawerRight({ page = null, title = '' }) {
               value={note}
               onChange={e => setNote(e.target.value)}
             />
-            <button onClick={() => { addNote(note) }} style={{ position: 'absolute', bottom: '16px', width: 'calc(100% - 44px)', height: '36px', backgroundColor: '#3f51b5', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', fontSize: '16px', borderRadius: '28px' }}>aaaa</button>
+            <button onClick={() => { addNote(note) }} style={{ position: 'absolute', bottom: '16px', width: 'calc(100% - 44px)', height: '36px', backgroundColor: '#3f51b5', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', fontSize: '16px', borderRadius: '28px' }}>노트입력</button>
           </div>
         </Modal>
       </div>
