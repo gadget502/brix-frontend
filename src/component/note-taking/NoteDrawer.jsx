@@ -56,13 +56,13 @@ const useStyles = makeStyles(theme => ({
   },
   appBarShift: {
     //width: `calc(100% - ${drawerWidth}px)`,
-    width: `calc(100% - 30%)`,
+    width: `calc(100% - 40%)`,
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
     //marginRight: drawerWidth,
-    marginRight: '30%'
+    marginRight: '40%'
   },
   title: {
     flexGrow: 1,
@@ -72,12 +72,12 @@ const useStyles = makeStyles(theme => ({
   },
   drawer: {
     //width: drawerWidth,
-    width: '30%',
+    width: '40%',
     flexShrink: 0,
   },
   drawerPaper: {
     //width: drawerWidth,
-    width: '30%'
+    width: '40%'
   },
   drawerHeader: {
     display: 'flex',
@@ -94,7 +94,7 @@ const useStyles = makeStyles(theme => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     //marginRight: -drawerWidth,
-    marginRight: '-30%'
+    marginRight: '-40%'
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
@@ -167,6 +167,9 @@ export default function PersistentDrawerRight({ page = null, title = '' }) {
   function handleDrawerClose() {
     setOpen(false);
   }
+  function handleGoBack() {
+    window.history.back();
+  }
 
   return (
     <>
@@ -179,6 +182,14 @@ export default function PersistentDrawerRight({ page = null, title = '' }) {
           })}
         >
           <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleGoBack}
+            >
+              <ChevronLeftIcon />
+            </IconButton>
             <Typography variant="h6" noWrap className={classes.title}>
               {title}
             </Typography>
