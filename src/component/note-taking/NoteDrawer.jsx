@@ -247,9 +247,12 @@ export default function PersistentDrawerRight({ page = null, title = '' }) {
               style={{ width: '100%', marginTop: '16px' }}
               label="Note"
               multiline
-              rows="1"
+              rows="6"
+              rowsMax="6"
               defaultValue="여기에 노트를 입력해주세요"
               value={note}
+              variant="outlined"
+              multiline
               onChange={e => setNote(e.target.value)}
             />
             <button onClick={() => { addNote(note) }} style={{ position: 'absolute', bottom: '16px', width: 'calc(100% - 44px)', height: '36px', backgroundColor: '#3f51b5', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', fontSize: '16px', borderRadius: '28px' }}>노트입력</button>
